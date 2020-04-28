@@ -22,10 +22,10 @@ class ViewController: UIViewController {
             print("Name/Age Field Empty")
 
         }else{
-            db.insert(name: nameTextField.text!, age:Int(ageTextField.text!)!)
+            db.insert(id:  Int(arc4random_uniform(10000)), name: nameTextField.text!, age: Int(ageTextField.text!)!)
                       
-                      nameTextField.text = ""
-                      ageTextField.text = ""
+            nameTextField.text = ""
+            ageTextField.text = ""
         }
 
              

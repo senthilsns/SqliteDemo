@@ -2,7 +2,7 @@
 //  DBHelper.swift
 //  SqliteDemo
 //
-//  Created by Senthil on 28/04/20.
+//  Created by Senthil on 27/04/20.
 //  Copyright © 2020 Senthil. All rights reserved.
 //
 
@@ -39,7 +39,7 @@ class DBHelper
     }
     
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS person(name TEXT,age INTEGER);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS person(Id INTEGER PRIMARY KEY,name TEXT,age INTEGER);"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK
         {
@@ -56,15 +56,22 @@ class DBHelper
     }
     
     
-    func insert(name:String, age:Int)
+    func insert(id:Int, name:String, age:Int)
     {
-        _ = read()
-     
-        let insertStatementString = "INSERT INTO person (name, age) VALUES ( ?, ?);"
+        let persons = read()
+        for p in persons
+        {
+            if p.id == id
+            {
+                return
+            }
+        }
+        let insertStatementString = "INSERT INTO person (Id, name, age) VALUES (?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            sqlite3_bind_text(insertStatement, 1, (name as NSString).utf8String, -1, nil)
-            sqlite3_bind_int(insertStatement, 2, Int32(age))
+            sqlite3_bind_int(insertStatement, 1, Int32(id))
+            sqlite3_bind_text(insertStatement, 2, (name as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 3, Int32(age))
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully inserted row.")
@@ -80,20 +87,21 @@ class DBHelper
     func read() -> [Person] {
         let queryStatementString = "SELECT * FROM person;"
         var queryStatement: OpaquePointer? = nil
-        var employeeData : [Person] = []
+        var psns : [Person] = []
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
-                let age = sqlite3_column_int(queryStatement, 1)
-                employeeData.append(Person(name: name, age: Int(age)))
+                let id = sqlite3_column_int(queryStatement, 0)
+                let name = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let year = sqlite3_column_int(queryStatement, 2)
+                psns.append(Person(id: Int(id), name: name, age: Int(year)))
                 print("Query Result:")
-                print(" \(name) | \(age)")
+                print("\(id) | \(name) | \(year)")
             }
         } else {
             print("SELECT statement could not be prepared")
         }
         sqlite3_finalize(queryStatement)
-        return employeeData
+        return psns
     }
     
     func deleteByID(id:Int) {
