@@ -13,8 +13,23 @@ class ViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var ageTextField: UITextField!
     
+    var db:DBHelper = DBHelper()
+    var persons:[Person] = []
     
     @IBAction func Save_TouchUpInside(_ sender: Any) {
+        
+        if ( nameTextField.text?.isEmpty)! || ( ageTextField.text?.isEmpty)! {
+            print("Name/Age Field Empty")
+
+        }else{
+            db.insert(name: nameTextField.text!, age:Int(ageTextField.text!)!)
+                      
+                      nameTextField.text = ""
+                      ageTextField.text = ""
+        }
+
+             
+        
     }
     
     override func viewDidLoad() {

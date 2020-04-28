@@ -14,6 +14,10 @@
 		8D8E689B245752F9008FCB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8E689A245752F9008FCB90 /* Assets.xcassets */; };
 		8D8E689E245752F9008FCB90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8E689C245752F9008FCB90 /* LaunchScreen.storyboard */; };
 		8D8E68A624575361008FCB90 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E68A524575361008FCB90 /* FirstViewController.swift */; };
+		8D8E68A824580B3F008FCB90 /* EmpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E68A724580B3F008FCB90 /* EmpCell.swift */; };
+		8D8E68AA24581584008FCB90 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E68A924581584008FCB90 /* DBHelper.swift */; };
+		8D8E68AD245815C4008FCB90 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8E68AC245815C4008FCB90 /* libsqlite3.0.tbd */; };
+		8D8E68AF24581668008FCB90 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8E68AE24581668008FCB90 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		8D8E689D245752F9008FCB90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D8E689F245752F9008FCB90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8E68A524575361008FCB90 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		8D8E68A724580B3F008FCB90 /* EmpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpCell.swift; sourceTree = "<group>"; };
+		8D8E68A924581584008FCB90 /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		8D8E68AC245815C4008FCB90 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		8D8E68AE24581668008FCB90 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8E68AD245815C4008FCB90 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,7 @@
 			children = (
 				8D8E6890245752F6008FCB90 /* SqliteDemo */,
 				8D8E688F245752F6008FCB90 /* Products */,
+				8D8E68AB245815C4008FCB90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,12 +72,23 @@
 				8D8E6893245752F6008FCB90 /* SceneDelegate.swift */,
 				8D8E6895245752F6008FCB90 /* ViewController.swift */,
 				8D8E68A524575361008FCB90 /* FirstViewController.swift */,
+				8D8E68A924581584008FCB90 /* DBHelper.swift */,
+				8D8E68A724580B3F008FCB90 /* EmpCell.swift */,
+				8D8E68AE24581668008FCB90 /* Person.swift */,
 				8D8E6897245752F6008FCB90 /* Main.storyboard */,
 				8D8E689A245752F9008FCB90 /* Assets.xcassets */,
 				8D8E689C245752F9008FCB90 /* LaunchScreen.storyboard */,
 				8D8E689F245752F9008FCB90 /* Info.plist */,
 			);
 			path = SqliteDemo;
+			sourceTree = "<group>";
+		};
+		8D8E68AB245815C4008FCB90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D8E68AC245815C4008FCB90 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8E68A824580B3F008FCB90 /* EmpCell.swift in Sources */,
+				8D8E68AA24581584008FCB90 /* DBHelper.swift in Sources */,
 				8D8E6896245752F6008FCB90 /* ViewController.swift in Sources */,
 				8D8E6892245752F6008FCB90 /* AppDelegate.swift in Sources */,
+				8D8E68AF24581668008FCB90 /* Person.swift in Sources */,
 				8D8E6894245752F6008FCB90 /* SceneDelegate.swift in Sources */,
 				8D8E68A624575361008FCB90 /* FirstViewController.swift in Sources */,
 			);
