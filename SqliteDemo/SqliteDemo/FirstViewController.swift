@@ -20,9 +20,19 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Emp List"
         persons = db.read()
 
+
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -62,7 +72,16 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         };
     }
  
-      
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+        newViewController.Id = persons[indexPath.row].id
+        newViewController.name = persons[indexPath.row].name
+        newViewController.age = persons[indexPath.row].age
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
+
 
 
 }

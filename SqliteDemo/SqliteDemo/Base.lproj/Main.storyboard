@@ -99,7 +99,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Elj-Ye-jO8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Elj-Ye-jO8">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -159,7 +159,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FMl-Wk-uzL"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FGt-Fv-bbB">
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="FGt-Fv-bbB">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dbd-1H-QbS"/>
                     </navigationItem>
                     <connections>
@@ -187,6 +187,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVa-rN-pZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="ISd-Ae-0n0">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9gL-uM-YWs" customClass="SecondViewController" customModule="SqliteDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IFF-G2-3Q9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nW6-7c-gwC">
+                                <rect key="frame" x="107" y="179" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="1aI-X3-5W8"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="haV-z2-aOW">
+                                <rect key="frame" x="107" y="238" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="lQq-Om-mtQ"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTy-PF-6uF">
+                                <rect key="frame" x="107" y="307" width="200" height="34"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="kJJ-8M-v3M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="17"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Update_TouchUpInside:" destination="9gL-uM-YWs" eventType="touchUpInside" id="Pyb-hX-UQI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="f3k-Iv-Mrg" firstAttribute="trailing" secondItem="haV-z2-aOW" secondAttribute="trailing" constant="107" id="6TL-Hp-SaB"/>
+                            <constraint firstItem="nW6-7c-gwC" firstAttribute="leading" secondItem="f3k-Iv-Mrg" secondAttribute="leading" constant="107" id="GA0-XS-EVJ"/>
+                            <constraint firstItem="lTy-PF-6uF" firstAttribute="top" secondItem="haV-z2-aOW" secondAttribute="bottom" constant="35" id="Gwm-Ve-heh"/>
+                            <constraint firstItem="haV-z2-aOW" firstAttribute="top" secondItem="nW6-7c-gwC" secondAttribute="bottom" constant="25" id="RUU-DW-pnP"/>
+                            <constraint firstItem="f3k-Iv-Mrg" firstAttribute="trailing" secondItem="lTy-PF-6uF" secondAttribute="trailing" constant="107" id="iGT-r0-nEj"/>
+                            <constraint firstItem="nW6-7c-gwC" firstAttribute="top" secondItem="f3k-Iv-Mrg" secondAttribute="top" constant="135" id="n99-zv-QCn"/>
+                            <constraint firstItem="haV-z2-aOW" firstAttribute="leading" secondItem="f3k-Iv-Mrg" secondAttribute="leading" constant="107" id="nhC-o4-jXS"/>
+                            <constraint firstItem="lTy-PF-6uF" firstAttribute="leading" secondItem="f3k-Iv-Mrg" secondAttribute="leading" constant="107" id="t2U-nU-wVT"/>
+                            <constraint firstItem="f3k-Iv-Mrg" firstAttribute="trailing" secondItem="nW6-7c-gwC" secondAttribute="trailing" constant="107" id="v1z-4H-NoF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f3k-Iv-Mrg"/>
+                    </view>
+                    <connections>
+                        <outlet property="AgeUpdateField" destination="haV-z2-aOW" id="EwA-cS-yD8"/>
+                        <outlet property="NameUpdateField" destination="nW6-7c-gwC" id="Jfx-jO-QQk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72l-wm-elo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2485.507246376812" y="131.91964285714286"/>
         </scene>
     </scenes>
 </document>

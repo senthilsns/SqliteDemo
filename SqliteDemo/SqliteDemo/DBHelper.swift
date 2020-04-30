@@ -120,4 +120,27 @@ class DBHelper
         sqlite3_finalize(deleteStatement)
     }
     
+    
+    func update(id:Int, name:String, age:Int) {
+        
+        let updateStatementStirng = "UPDATE person SET name = '\(name)',age = '\(age)' WHERE Id = '\(id)'"
+        var updateStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, updateStatementStirng, -1, &updateStatement, nil) == SQLITE_OK {
+            
+            sqlite3_bind_int(updateStatement, 1, Int32(id))
+            sqlite3_bind_text(updateStatement, 2, (name as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(updateStatement, 3, Int32(age))
+
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+                print("Successfully updated row.")
+            } else {
+                print("Could not update row.")
+            }
+        } else {
+            print("UPDATE statement could not be prepared")
+        }
+        sqlite3_finalize(updateStatement)
+    }
+
+    
 }
